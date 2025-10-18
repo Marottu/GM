@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema GM - Gestão Completa para MEI, Pequenas e Médias Empresas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        
+        .gradient-text-orange {
+            background: linear-gradient(90deg, #f97316 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.06);
+        }
+        
+        .plan-card.popular {
+            transform: scale(1.05);
+            border-color: #f97316;
+            box-shadow: 0 20px 25px -5px rgba(249, 115, 22, 0.3);
+        }
+        
+        .hero-button {
+            background: linear-gradient(90deg, #f97316 0%, #f59e0b 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .hero-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.4);
+        }
+        
+        .secondary-button {
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .secondary-button:hover {
+            border-color: #f97316;
+            color: #f97316;
+        }
+        
+        .feature-icon-orange {
+            background: linear-gradient(90deg, #f97316 0%, #f59e0b 100%);
+        }
+        
+        .feature-icon-blue {
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+        }
+        
+        .feature-icon-black {
+            background: linear-gradient(90deg, #1f2937 0%, #374151 100%);
+        }
+        
+        .feature-icon-lightblue {
+            background: linear-gradient(90deg, #1d4ed8 0%, #1e40af 100%);
+        }
+        
+        .whatsapp-button {
+            background: linear-gradient(90deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(37, 211, 102, 0.4);
+        }
+        
+        .plans-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 1280px) {
+            .plans-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .menu-item {
+            color: #334155;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 4px;
+        }
+        
+        .menu-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #1f2937 0%, #2563eb 50%, #f97316 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            color: #1f2937;
+        }
+        
+        .menu-item:hover::after {
+            width: 100%;
+        }
+        
+        .plan-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        
+        .plan-title {
+            text-align: center;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        
+        .plan-price {
+            text-align: center;
+            font-weight: 800;
+            color: #1f2937;
+            font-size: 1.5rem;
+        }
+        
+        .plan-price span {
+            font-weight: 500;
+            color: #64748b;
+            display: block;
+            font-size: 0.875rem;
+        }
+        
+        .image-placeholder {
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            min-height: 400px;
+        }
+        
+        .upload-instruction {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-blue-600 via-orange-500 to-black rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">GM</span>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-900">Sistema GM</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#recursos" class="menu-item">Recursos</a>
+                    <a href="#planos" class="menu-item">Planos</a>
+                    <a href="#contato" class="menu-item">Contato</a>
+                </nav>
+                <a href="https://wa.me/5541996841054" target="_blank" class="whatsapp-button px-6 py-2 rounded-lg font-semibold flex items-center">
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    Falar com Especialista
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 px-4 sm:px-6 lg:px-8 hero-gradient">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="inline-block bg-gradient-to-r from-orange-500 to-yellow-500 px-4 py-2 rounded-full">
+                        <span class="text-white font-semibold flex items-center">
+                            <i class="fas fa-award mr-2"></i>
+                            Sistema Perfeito para MEI, Pequenas e Médias Empresas
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-6xl font-bold text-white leading-tight">
+                        Controle seu negócio <span class="gradient-text-orange">de qualquer lugar</span>
+                    </h1>
+                    
+                    <p class="text-xl text-blue-100 leading-relaxed plan-text">
+                        Sistema de gestão completo com PDV offline e gestão web integrada. Perfeito para MEIs, pequenas e médias empresas que querem simplicidade, agilidade e controle total do seu negócio, com emissão fiscal completa e suporte personalizado desde o primeiro dia.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contato" class="whatsapp-button px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center">
+                            <i class="fab fa-whatsapp text-white mr-3 text-xl"></i>
+                            Quero Ser Atendido
+                        </a>
+                        <button class="secondary-button text-gray-700 px-8 py-4 rounded-xl font-bold text-lg bg-white/10 backdrop-blur-sm">
+                            Ver Demonstração
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center space-x-6 pt-4">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-orange-400">5.000+</div>
+                            <div class="text-blue-200">Clientes Atendidos</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-400">92%</div>
+                            <div class="text-blue-200">Satisfação</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-gray-400">24/7</div>
+                            <div class="text-blue-200">Suporte</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-blue-500 to-orange-500 rounded-2xl p-1 shadow-2xl">
+                        <div class="image-placeholder">
+                            <div>
+                                <i class="fas fa-image text-4xl mb-4"></i>
+                                <p class="mb-4">Área para sua imagem personalizada</p>
+                                <div class="upload-instruction">
+                                    <p class="text-sm">Para adicionar sua imagem da cafeteria:</p>
+                                    <p class="text-xs mt-2 font-mono">Substitua o src da tag img abaixo pelo caminho da sua imagem CAFETERIA.jpg</p>
+                                    <p class="text-xs mt-1 font-mono">ou faça upload no seu servidor e atualize o link</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-orange-500"></i>
+                            <span class="font-semibold text-gray-800">Atendimento Personalizado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Fidelizamos por Satisfação</h2>
+                <p class="text-xl text-gray-600 plan-text">
+                    Resultados reais de nossos clientes MEIs, pequenas e médias empresas que confiam no Sistema GM para gerenciar seus negócios com eficiência e segurança fiscal.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center p-6 bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl">
+                    <div class="text-4xl font-bold text-orange-600 mb-2">2h</div>
+                    <div class="text-gray-700 font-semibold">Tempo Médio de Implementação</div>
+                </div>
+                <div class="text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+                    <div class="text-gray-700 font-semibold">Suporte Disponível</div>
+                </div>
+                <div class="text-center p-6 bg-gradient-to-br from-gray-50 to-slate-100 rounded-2xl">
+                    <div class="text-4xl font-bold text-gray-700 mb-2">5.000+</div>
+                    <div class="text-gray-700 font-semibold">Clientes Atendidos</div>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-1 gap-12 items-center max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-orange-50 to-yellow-50 p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Taxa de Satisfação</h3>
+                    <div class="text-center">
+                        <div class="text-6xl font-bold text-orange-600 mb-2">92%</div>
+                        <div class="text-gray-700 plan-text">
+                            de clientes satisfeitos e fidelizados que continuam utilizando nosso sistema por sua eficiência, simplicidade e suporte de qualidade.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="recursos" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">
+                    Por que o Sistema GM é <span class="gradient-text-orange">diferente</span>?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto plan-text">
+                    Enquanto outros sistemas oferecem apenas PDV offline OU gestão web, nós unimos o melhor dos dois mundos em uma solução completa, segura e intuitiva para o seu negócio.
+                </p>
+            </div>
+            
+            <!-- Features em linha reta com cores azul, laranja e preto -->
+            <div class="features-grid">
+                <div class="feature-card bg-white p-6 rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 text-center">
+                    <div class="w-12 h-12 feature-icon-orange rounded-lg flex items-center justify-center text-white mx-auto mb-4">
+                        <i class="fas fa-bolt text-white"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">PDV Offline + Gestão Web</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed plan-text">
+                        Funciona mesmo sem internet e sincroniza automaticamente quando volta online, garantindo que seu negócio nunca pare.
+                    </p>
+                </div>
+                
+                <div class="feature-card bg-white p-6 rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 text-center">
+                    <div class="w-12 h-12 feature-icon-blue rounded-lg flex items-center justify-center text-white mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-white"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Emissão Fiscal Completa</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed plan-text">
+                        NFC-e e NF-e integradas, sempre em conformidade com a legislação vigente, mantendo seu negócio sempre regularizado.
+                    </p>
+                </div>
+                
+                <div class="feature-card bg-white p-6 rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 text-center">
+                    <div class="w-12 h-12 feature-icon-black rounded-lg flex items-center justify-center text-white mx-auto mb-4">
+                        <i class="fas fa-mobile-alt text-white"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Controle de Qualquer Lugar</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed plan-text">
+                        Acesse seu negócio do celular, tablet ou computador, tenha total controle mesmo quando estiver longe da sua loja.
+                    </p>
+                </div>
+                
+                <div class="feature-card bg-white p-6 rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 text-center">
+                    <div class="w-12 h-12 feature-icon-lightblue rounded-lg flex items-center justify-center text-white mx-auto mb-4">
+                        <i class="fas fa-users text-white"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Suporte Inicial Personalizado</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed plan-text">
+                        Nossa equipe especializada te acompanha na implementação e primeiros passos, garantindo que você aproveite ao máximo todas as funcionalidades.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-gradient-to-r from-blue-600 via-orange-500 to-black rounded-3xl p-8 text-white">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h3 class="text-3xl font-bold mb-4">Interface Intuitiva que Qualquer Pessoa Entende</h3>
+                    <p class="text-xl opacity-90 mb-6 plan-text">
+                        Desenvolvido especialmente para MEIs, pequenas e médias empresas que não têm tempo para aprender sistemas complicados. Simples, rápido e eficiente.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="bg-white/20 px-4 py-2 rounded-full">Dashboard Simples</div>
+                        <div class="bg-white/20 px-4 py-2 rounded-full">Menus Claros</div>
+                        <div class="bg-white/20 px-4 py-2 rounded-full">Botões Grandes</div>
+                        <div class="bg-white/20 px-4 py-2 rounded-full">Ajuda Contextual</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section id="planos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Planos Perfeitos para seu Negócio</h2>
+                <p class="text-xl text-gray-600 plan-text">
+                    Escolha o plano que melhor se adapta ao seu MEI, pequena ou média empresa, com funcionalidades específicas para cada tipo de negócio e necessidade.
+                </p>
+            </div>
+            
+            <!-- Planos alinhados lado a lado com textos reduzidos -->
+            <div class="plans-container">
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200">
+                    <div class="p-6">
+                        <h3 class="plan-title mb-3">PDV SIMPLES</h3>
+                        <div class="mb-4">
+                            <div class="plan-price">R$ 50,00<span>/mês</span></div>
+                        </div>
+                        
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Vendas</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Emissor NFC-e</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="#contato" class="w-full whatsapp-button py-2 rounded-lg font-semibold flex items-center justify-center text-sm">
+                            <i class="fab fa-whatsapp text-white mr-1 text-sm"></i>
+                            Quero Esse Plano
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="plan-card popular bg-white rounded-2xl shadow-lg transition-all duration-300 border-2">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-600 via-orange-500 to-black text-white px-3 py-1 rounded-full text-xs font-bold">
+                        MAIS POPULAR
+                    </div>
+                    <div class="p-6 pt-8">
+                        <h3 class="plan-title mb-3">WEB</h3>
+                        <div class="mb-4">
+                            <div class="plan-price">R$ 80,00<span>/mês</span></div>
+                        </div>
+                        
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Dashboard</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Estoque</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Compras</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Financeiro</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Relatórios</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">NFC-e</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">NF-e</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="#contato" class="w-full whatsapp-button py-2 rounded-lg font-semibold flex items-center justify-center text-sm">
+                            <i class="fab fa-whatsapp text-white mr-1 text-sm"></i>
+                            Quero Esse Plano
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200">
+                    <div class="p-6">
+                        <h3 class="plan-title mb-3">PDV WEB GESTÃO</h3>
+                        <div class="mb-4">
+                            <div class="plan-price">R$ 100,00<span>/mês</span></div>
+                        </div>
+                        
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Dashboard</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Estoque</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Compras</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Financeiro</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Relatórios</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">NFC-e</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="#contato" class="w-full whatsapp-button py-2 rounded-lg font-semibold flex items-center justify-center text-sm">
+                            <i class="fab fa-whatsapp text-white mr-1 text-sm"></i>
+                            Quero Esse Plano
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200">
+                    <div class="p-6">
+                        <h3 class="plan-title mb-3">PDV GESTÃO TOTAL</h3>
+                        <div class="mb-4">
+                            <div class="plan-price">R$ 130,00<span>/mês</span></div>
+                        </div>
+                        
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Dashboard</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Estoque</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Compras</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Financeiro</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">Relatórios</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">NFC-e</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">NF-e</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="#contato" class="w-full whatsapp-button py-2 rounded-lg font-semibold flex items-center justify-center text-sm">
+                            <i class="fab fa-whatsapp text-white mr-1 text-sm"></i>
+                            Quero Esse Plano
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <div class="inline-block bg-orange-50 border border-orange-200 rounded-xl px-4 py-3">
+                    <p class="text-orange-800 font-medium text-sm plan-text">
+                        💡 <strong>Dica Importante:</strong> Comece com o plano WEB (R$80) - é o mais completo e equilibrado para MEIs, pequenas e médias empresas que desejam controle total com emissão fiscal completa!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contato" class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Quero Conhecer o Sistema GM!</h2>
+                    <p class="text-gray-600 text-lg">Preencha o formulário abaixo e entraremos em contato pelo WhatsApp para agendar sua demonstração gratuita.</p>
+                </div>
+                
+                <form id="leadForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="nome" class="block text-sm font-medium text-gray-700 mb-2">Nome Completo *</label>
+                            <input type="text" id="nome" name="nome" required class="form-input" placeholder="Seu nome completo">
+                        </div>
+                        <div>
+                            <label for="empresa" class="block text-sm font-medium text-gray-700 mb-2">Nome da Empresa *</label>
+                            <input type="text" id="empresa" name="empresa" required class="form-input" placeholder="Nome do seu negócio">
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="telefone" class="block text-sm font-medium text-gray-700 mb-2">WhatsApp *</label>
+                            <input type="tel" id="telefone" name="telefone" required class="form-input" placeholder="(41) 99999-9999">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">E-mail</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="seu@email.com">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="segmento" class="block text-sm font-medium text-gray-700 mb-2">Segmento do Negócio *</label>
+                        <select id="segmento" name="segmento" required class="form-select">
+                            <option value="">Selecione seu segmento</option>
+                            <option value="alimentacao">Alimentação (Restaurante, Lanchonete, Cafeteria)</option>
+                            <option value="varejo">Varejo (Loja de Roupas, Calçados, Presentes)</option>
+                            <option value="servicos">Serviços (Salão de Beleza, Oficina, Consultoria)</option>
+                            <option value="supermercado">Supermercado / Mercearia</option>
+                            <option value="farmacia">Farmácia</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="plano" class="block text-sm font-medium text-gray-700 mb-2">Plano de Interesse *</label>
+                        <select id="plano" name="plano" required class="form-select">
+                            <option value="">Selecione o plano que mais te interessa</option>
+                            <option value="pdv_simples">PDV SIMPLES - R$ 50,00/mês</option>
+                            <option value="web" selected>WEB - R$ 80,00/mês (Mais Popular)</option>
+                            <option value="pdv_web_gestao">PDV WEB GESTÃO - R$ 100,00/mês</option>
+                            <option value="pdv_gestao_total">PDV GESTÃO TOTAL - R$ 130,00/mês</option>
+                            <option value="nao_sei">Ainda não sei qual plano escolher</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="mensagem" class="block text-sm font-medium text-gray-700 mb-2">Mensagem (Opcional)</label>
+                        <textarea id="mensagem" name="mensagem" rows="4" class="form-input" placeholder="Conte-nos mais sobre seu negócio e suas necessidades..."></textarea>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="whatsapp-button px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center mx-auto">
+                            <i class="fab fa-whatsapp text-white mr-3 text-xl"></i>
+                            Enviar para WhatsApp - (41) 99684-1054
+                        </button>
+                        <p class="text-gray-500 text-sm mt-4">Seu contato será enviado diretamente para nosso WhatsApp e entraremos em contato em breve!</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 via-orange-500 to-black">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white mb-6">
+                Pronto para Transformar seu Negócio?
+            </h2>
+            <p class="text-xl text-blue-100 mb-8 plan-text">
+                Fale diretamente com nosso especialista e descubra qual plano é ideal para sua empresa, com atendimento personalizado e suporte inicial incluído.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/5541996841054" target="_blank" class="whatsapp-button px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center">
+                    <i class="fab fa-whatsapp text-white mr-3 text-xl"></i>
+                    Falar com Especialista - (41) 99684-1054
+                </a>
+            </div>
+            <p class="text-blue-100 mt-6 plan-text">
+                Suporte inicial incluído • Atendimento personalizado • Sem compromisso
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-600 via-orange-500 to-black rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold">GM</span>
+                    </div>
+                    <span class="text-xl font-bold">Sistema GM</span>
+                </div>
+                <p class="text-gray-400 mb-6 plan-text">
+                    O sistema de gestão perfeito para MEIs, pequenas e médias empresas que querem simplicidade, agilidade e controle total do seu negócio com segurança fiscal.
+                </p>
+                <div class="mb-4">
+                    <a href="https://wa.me/5541996841054" target="_blank" class="whatsapp-button px-6 py-3 rounded-lg font-semibold inline-flex items-center">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        (41) 99684-1054
+                    </a>
+                </div>
+                <div class="border-t border-gray-800 pt-6">
+                    <p class="text-gray-500">
+                        © 2024 Sistema GM. Todos os direitos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para lidar com o formulário de leads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll para âncoras
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Formulário de leads
+            const form = document.getElementById('leadForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Coletar dados do formulário
+                    const nome = document.getElementById('nome').value;
+                    const empresa = document.getElementById('empresa').value;
+                    const telefone = document.getElementById('telefone').value;
+                    const email = document.getElementById('email').value;
+                    const segmento = document.getElementById('segmento').value;
+                    const plano = document.getElementById('plano').value;
+                    const mensagem = document.getElementById('mensagem').value;
+                    
+                    // Formatar mensagem para WhatsApp
+                    let mensagemWhatsApp = `Olá! Tenho interesse no Sistema GM.%0A%0A`;
+                    mensagemWhatsApp += `*Nome:* ${nome}%0A`;
+                    mensagemWhatsApp += `*Empresa:* ${empresa}%0A`;
+                    mensagemWhatsApp += `*WhatsApp:* ${telefone}%0A`;
+                    if (email) {
+                        mensagemWhatsApp += `*E-mail:* ${email}%0A`;
+                    }
+                    mensagemWhatsApp += `*Segmento:* ${segmento}%0A`;
+                    mensagemWhatsApp += `*Plano de interesse:* ${plano}%0A`;
+                    if (mensagem) {
+                        mensagemWhatsApp += `*Mensagem:* ${mensagem}%0A`;
+                    }
+                    mensagemWhatsApp += `%0AEstou aguardando o contato de vocês!`;
+                    
+                    // Redirecionar para WhatsApp
+                    const whatsappURL = `https://wa.me/5541996841054?text=${mensagemWhatsApp}`;
+                    window.open(whatsappURL, '_blank');
+                    
+                    // Opcional: mostrar mensagem de sucesso
+                    alert('Seu contato foi enviado para nosso WhatsApp! Entraremos em contato em breve.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
