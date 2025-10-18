@@ -1,10 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema GM - Gestão Completa para MEI, Pequenas e Médias Empresas</title>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
         
@@ -210,6 +212,62 @@
             border-color: #2563eb;
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
+        
+        .erp-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .erp-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .erp-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            padding: 4rem 2rem;
+            border-radius: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        .erp-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #f97316 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .erp-subtitle {
+            font-size: 1.25rem;
+            color: #334155;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .erp-description {
+            font-size: 1.1rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .erp-highlight {
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -290,7 +348,8 @@
                                 <p class="mb-4">Área para sua imagem personalizada</p>
                                 <div class="upload-instruction">
                                     <p class="text-sm">Para adicionar sua imagem da cafeteria:</p>
-                                    <img src="https://github.com/Marottu/GM/raw/main/ChatGPT%20Image%209%20de%20jul.%20de%202025%2C%2018_07_20.png" alt="Imagem da cafeteria">   
+                                    <p class="text-xs mt-2 font-mono">Substitua o src da tag img abaixo pelo caminho da sua imagem CAFETERIA.jpg</p>
+                                    <p class="text-xs mt-1 font-mono">ou faça upload no seu servidor e atualize o link</p>
                                 </div>
                             </div>
                         </div>
@@ -300,6 +359,77 @@
                             <i class="fas fa-check-circle text-orange-500"></i>
                             <span class="font-semibold text-gray-800">Atendimento Personalizado</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ERP Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="erp-section">
+                <div class="text-center mb-8">
+                    <h2 class="erp-title">Gestão com ERP completo</h2>
+                    <p class="erp-subtitle">Informações consolidadas do seu negócio em um único lugar. Controle total sobre a situação financeira, relatórios gerenciais e emissão de todos os modelos de notas fiscais eletrônicas e muito mais.</p>
+                </div>
+                
+                <div class="flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda3cccd40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=600&q=80" alt="Dashboard de gestão empresarial" class="erp-image">
+                </div>
+                
+                <div class="mt-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">O que você pode fazer com nosso ERP</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-500 mr-3 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-700"><strong>Dashboard completo</strong> com indicadores em tempo real</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-500 mr-3 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-700"><strong>Emissão de NFC-e e NF-e</strong> em conformidade com a legislação</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-500 mr-3 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-700"><strong>Controle financeiro</strong> completo com fluxo de caixa e conciliação bancária</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-500 mr-3 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-700"><strong>Gestão de estoque</strong> com alertas de reposição e histórico de movimentações</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Benefícios exclusivos</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-orange-500 mr-3 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-700"><strong>PDV Offline + Gestão Web</strong> - Funciona mesmo sem internet</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-orange-500 mr-3 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-700"><strong>Relatórios gerenciais</strong> personalizáveis para tomada de decisões estratégicas</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-orange-500 mr-3 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-700"><strong>Controle de qualquer lugar</strong> - Acesse do celular, tablet ou computador</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-orange-500 mr-3 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-700"><strong>Suporte inicial personalizado</strong> - Nossa equipe te acompanha na implementação</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <div class="inline-block bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
+                        <p class="text-blue-800 font-medium text-sm">
+                            💡 <strong>Dica Importante:</strong> O ERP completo do Sistema GM é ideal para quem quer ter controle total do seu negócio com segurança fiscal e eficiência operacional!
+                        </p>
                     </div>
                 </div>
             </div>
@@ -454,11 +584,8 @@
                     </div>
                 </div>
                 
-                <div class="plan-card popular bg-white rounded-2xl shadow-lg transition-all duration-300 border-2">
-                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-600 via-orange-500 to-black text-white px-3 py-1 rounded-full text-xs font-bold">
-                        MAIS POPULAR
-                    </div>
-                    <div class="p-6 pt-8">
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200">
+                    <div class="p-6">
                         <h3 class="plan-title mb-3">WEB</h3>
                         <div class="mb-4">
                             <div class="plan-price">R$ 80,00<span>/mês</span></div>
@@ -502,8 +629,11 @@
                     </div>
                 </div>
                 
-                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200">
-                    <div class="p-6">
+                <div class="plan-card popular bg-white rounded-2xl shadow-lg transition-all duration-300 border-2">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-600 via-orange-500 to-black text-white px-3 py-1 rounded-full text-xs font-bold">
+                        MAIS POPULAR
+                    </div>
+                    <div class="p-6 pt-8">
                         <h3 class="plan-title mb-3">PDV WEB GESTÃO</h3>
                         <div class="mb-4">
                             <div class="plan-price">R$ 100,00<span>/mês</span></div>
@@ -592,7 +722,7 @@
             <div class="mt-8 text-center">
                 <div class="inline-block bg-orange-50 border border-orange-200 rounded-xl px-4 py-3">
                     <p class="text-orange-800 font-medium text-sm plan-text">
-                        💡 <strong>Dica Importante:</strong> Comece com o plano WEB (R$80) - é o mais completo e equilibrado para MEIs, pequenas e médias empresas que desejam controle total com emissão fiscal completa!
+                        💡 <strong>Dica Importante:</strong> O plano PDV WEB GESTÃO (R$100) é o mais popular entre nossos clientes MEIs e pequenas empresas, oferecendo o melhor equilíbrio entre funcionalidades e custo-benefício!
                     </p>
                 </div>
             </div>
@@ -649,8 +779,8 @@
                         <select id="plano" name="plano" required class="form-select">
                             <option value="">Selecione o plano que mais te interessa</option>
                             <option value="pdv_simples">PDV SIMPLES - R$ 50,00/mês</option>
-                            <option value="web" selected>WEB - R$ 80,00/mês (Mais Popular)</option>
-                            <option value="pdv_web_gestao">PDV WEB GESTÃO - R$ 100,00/mês</option>
+                            <option value="web">WEB - R$ 80,00/mês</option>
+                            <option value="pdv_web_gestao" selected>PDV WEB GESTÃO - R$ 100,00/mês (Mais Popular)</option>
                             <option value="pdv_gestao_total">PDV GESTÃO TOTAL - R$ 130,00/mês</option>
                             <option value="nao_sei">Ainda não sei qual plano escolher</option>
                         </select>
@@ -780,5 +910,5 @@
         });
     </script>
 </body>
-
 </html>
+```
