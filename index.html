@@ -939,9 +939,425 @@ async function sendMessage() {
 </script>
 
     </script>
+    <!-- Adicione este código ANTES do </body> da sua landing page -->
+
+<!-- Botão da Assistente Virtual -->
+<div id="chatbot-toggle" class="chatbot-toggle">
+    <i class="fas fa-robot"></i>
+</div>
+
+<!-- Container do Chat -->
+<div id="chatbot-container" class="chatbot-container">
+    <div class="chatbot-header">
+        <h4>Assistente GM SISTEMAS</h4>
+        <button id="chatbot-close" class="chatbot-close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div id="chatbot-messages" class="chatbot-messages">
+        <div class="message bot-message">
+            <div class="message-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="message-content">
+                Olá! Sou a assistente virtual da GM SISTEMAS. Como posso ajudar você hoje?
+            </div>
+        </div>
+    </div>
+    <div class="chatbot-input">
+        <input type="text" id="chatbot-input" placeholder="Digite sua mensagem..." maxlength="200">
+        <button id="chatbot-send">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
+
+<style>
+    /* Estilos da Assistente Virtual */
+    .chatbot-toggle {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        z-index: 1001;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+    }
+
+    .chatbot-toggle:hover {
+        transform: scale(1.1);
+    }
+
+    .chatbot-container {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 350px;
+        height: 500px;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        z-index: 1002;
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .chatbot-container.active {
+        display: flex;
+    }
+
+    .chatbot-header {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: white;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .chatbot-header h4 {
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    .chatbot-close {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    .chatbot-messages {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .message {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .bot-message {
+        align-self: flex-start;
+    }
+
+    .user-message {
+        align-self: flex-end;
+        flex-direction: row-reverse;
+    }
+
+    .message-avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        color: white;
+        flex-shrink: 0;
+    }
+
+    .user-message .message-avatar {
+        background: #10b981;
+    }
+
+    .message-content {
+        background: #2d2d2d;
+        padding: 12px 15px;
+        border-radius: 15px;
+        max-width: 80%;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        border: 1px solid #333;
+    }
+
+    .user-message .message-content {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: white;
+    }
+
+    .chatbot-input {
+        padding: 15px;
+        border-top: 1px solid #333;
+        display: flex;
+        gap: 10px;
+        background: #1a1a1a;
+    }
+
+    .chatbot-input input {
+        flex: 1;
+        padding: 12px 15px;
+        border: 1px solid #333;
+        border-radius: 25px;
+        background: #2d2d2d;
+        color: white;
+        font-size: 0.9rem;
+        outline: none;
+    }
+
+    .chatbot-input input:focus {
+        border-color: #3b82f6;
+    }
+
+    .chatbot-input button {
+        width: 45px;
+        height: 45px;
+        border: none;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .chatbot-input button:hover {
+        transform: scale(1.05);
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    /* Responsivo */
+    @media (max-width: 480px) {
+        .chatbot-container {
+            width: 90vw;
+            height: 70vh;
+            right: 5vw;
+            bottom: 80px;
+        }
+        
+        .chatbot-toggle {
+            right: 20px;
+            bottom: 80px;
+        }
+    }
+</style>
+
+<script>
+    // Base de conhecimento da assistente
+    const knowledgeBase = {
+        cumprimentos: [
+            "Olá! Como posso ajudar você hoje?",
+            "Oi! Em que posso ser útil?",
+            "Olá! Bem-vindo à GM SISTEMAS!"
+        ],
+        
+        planos: [
+            "Temos 4 planos: Básico (R$ 50), Web (R$ 80), Profissional (R$ 100) e Enterprise (R$ 130). Qual te interessa?",
+            "Nossos planos começam em R$ 50/mês. Posso te ajudar a escolher o ideal para seu negócio!",
+            "Oferecemos planos flexíveis de R$ 50 a R$ 130 mensais. Todos incluem suporte especializado."
+        ],
+        
+        pdv: [
+            "Nosso PDV funciona OFFLINE! Você vende mesmo sem internet e sincroniza depois.",
+            "O PDV da GM SISTEMAS é completo: controle de mesas, comandas, NFC-e e muito mais!",
+            "PDV 100% funcional offline com emissão de NFC-e integrada."
+        ],
+        
+        suporte: [
+            "Suporte de Segunda a Sexta das 8:30 às 18:00 e Sábado até 13:00.",
+            "Nosso suporte é especializado e está disponível em horário comercial.",
+            "Atendemos pelo WhatsApp (41) 99698-1582 ou email erpgmsistemas@gmail.com"
+        ],
+        
+        demonstracao: [
+            "Ótimo! Para agendar uma demonstração, preencha o formulário no site ou chame no WhatsApp!",
+            "Vou te conectar com nosso time para uma demonstração personalizada!",
+            "Perfeito! Nosso especialista entrará em contato para mostrar o sistema."
+        ],
+        
+        funcionalidades: [
+            "Temos: PDV offline, gestão financeira, controle de estoque, emissão de notas fiscais e apps mobile!",
+            "Funcionalidades completas: vendas, estoque, financeiro, relatórios e muito mais!",
+            "Sistema completo com PDV, gestão, relatórios e aplicativos integrados."
+        ],
+        
+        contato: [
+            "WhatsApp: (41) 99698-1582 | Email: erpgmsistemas@gmail.com",
+            "Fale conosco: (41) 99698-1582 ou erpgmsistemas@gmail.com",
+            "Contato direto: (41) 99698-1582 - Estamos online!"
+        ],
+        
+        default: [
+            "Desculpe, não entendi. Pode reformular?",
+            "Não consegui processar isso. Pode tentar de outra forma?",
+            "Hmm, não sei responder isso. Que tal perguntar sobre nossos planos ou funcionalidades?"
+        ]
+    };
+
+    // Mapeamento de palavras-chave para categorias
+    const keywordMap = {
+        // Cumprimentos
+        'oi': 'cumprimentos',
+        'olá': 'cumprimentos',
+        'ola': 'cumprimentos',
+        'hey': 'cumprimentos',
+        'eai': 'cumprimentos',
+        
+        // Planos e Preços
+        'plano': 'planos',
+        'planos': 'planos',
+        'preço': 'planos',
+        'preco': 'planos',
+        'valor': 'planos',
+        'quanto': 'planos',
+        'custa': 'planos',
+        'precos': 'planos',
+        'preços': 'planos',
+        
+        // PDV
+        'pdv': 'pdv',
+        'ponto de venda': 'pdv',
+        'venda': 'pdv',
+        'caixa': 'pdv',
+        'offline': 'pdv',
+        'nfc': 'pdv',
+        
+        // Suporte
+        'suporte': 'suporte',
+        'atendimento': 'suporte',
+        'horário': 'suporte',
+        'horario': 'suporte',
+        'funciona': 'suporte',
+        'ajuda': 'suporte',
+        
+        // Demonstração
+        'demo': 'demonstracao',
+        'demonstração': 'demonstracao',
+        'demonstracao': 'demonstracao',
+        'testar': 'demonstracao',
+        'experimentar': 'demonstracao',
+        'avaliar': 'demonstracao',
+        
+        // Funcionalidades
+        'funcionalidade': 'funcionalidades',
+        'funcionalidades': 'funcionalidades',
+        'recursos': 'funcionalidades',
+        'sistema': 'funcionalidades',
+        'software': 'funcionalidades',
+        'faz': 'funcionalidades',
+        'fazer': 'funcionalidades',
+        
+        // Contato
+        'contato': 'contato',
+        'telefone': 'contato',
+        'whatsapp': 'contato',
+        'email': 'contato',
+        'falar': 'contato',
+        'ligar': 'contato'
+    };
+
+    // Elementos do DOM
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+    const chatbotInput = document.getElementById('chatbot-input');
+    const chatbotSend = document.getElementById('chatbot-send');
+
+    // Função para adicionar mensagem
+    function addMessage(text, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+        
+        messageDiv.innerHTML = `
+            <div class="message-avatar">
+                <i class="fas ${isUser ? 'fa-user' : 'fa-robot'}"></i>
+            </div>
+            <div class="message-content">
+                ${text}
+            </div>
+        `;
+        
+        chatbotMessages.appendChild(messageDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    // Função para processar a mensagem do usuário
+    function processUserMessage(message) {
+        const lowerMessage = message.toLowerCase();
+        let category = 'default';
+        
+        // Procura por palavras-chave
+        for (const [keyword, cat] of Object.entries(keywordMap)) {
+            if (lowerMessage.includes(keyword)) {
+                category = cat;
+                break;
+            }
+        }
+        
+        // Resposta aleatória da categoria
+        const responses = knowledgeBase[category];
+        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        
+        // Simula tempo de resposta
+        setTimeout(() => {
+            addMessage(randomResponse, false);
+        }, 1000);
+    }
+
+    // Event Listeners
+    chatbotToggle.addEventListener('click', () => {
+        chatbotContainer.classList.add('active');
+    });
+
+    chatbotClose.addEventListener('click', () => {
+        chatbotContainer.classList.remove('active');
+    });
+
+    chatbotSend.addEventListener('click', sendMessage);
+    
+    chatbotInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    function sendMessage() {
+        const message = chatbotInput.value.trim();
+        if (message) {
+            addMessage(message, true);
+            chatbotInput.value = '';
+            processUserMessage(message);
+        }
+    }
+
+    // Fechar chat ao clicar fora (opcional)
+    document.addEventListener('click', (e) => {
+        if (!chatbotContainer.contains(e.target) && !chatbotToggle.contains(e.target)) {
+            chatbotContainer.classList.remove('active');
+        }
+    });
+</script>
 </body>
 </html>
 ```
+
 
 
 
