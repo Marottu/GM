@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -12,76 +11,70 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8fafc;
+            background-color: #f8fafc; 
+            color: #334155;
         }
         
-        .hero-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        .hero-section {
+            background-color: #1e3a8a; /* Azul escuro sólido */
+            color: #ffffff;
         }
-        
-        .gradient-text-orange {
-            background: linear-gradient(90deg, #f97316 0%, #f59e0b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+
+        .text-orange-solid {
+            color: #f97316;
         }
         
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 20px 25px -5px rgba(29, 78, 216, 0.1), 0 10px 10px -5px rgba(29, 78, 216, 0.05);
+            border-color: #2563eb;
         }
         
         .plan-card.popular {
             transform: scale(1.05);
-            border-color: #f97316;
-            box-shadow: 0 20px 25px -5px rgba(249, 115, 22, 0.3);
+            border-color: #f97316; 
+            box-shadow: 0 20px 25px -5px rgba(249, 115, 22, 0.2);
         }
         
         .hero-button {
-            background: linear-gradient(90deg, #f97316 0%, #f59e0b 100%);
+            background-color: #f97316;
+            color: white;
             transition: all 0.3s ease;
         }
         
         .hero-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.4);
+            background-color: #fb923c; 
+            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
         }
         
         .secondary-button {
-            border: 2px solid #e2e8f0;
+            border: 2px solid #e2e8f0; 
+            background-color: #ffffff;
+            color: #334155; 
             transition: all 0.3s ease;
         }
         
         .secondary-button:hover {
-            border-color: #f97316;
+            border-color: #f97316; 
             color: #f97316;
         }
         
-        .feature-icon-orange {
-            background: linear-gradient(90deg, #f97316 0%, #f59e0b 100%);
-        }
-        
-        .feature-icon-blue {
-            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
-        }
-        
-        .feature-icon-black {
-            background: linear-gradient(90deg, #1f2937 0%, #374151 100%);
-        }
-        
-        .feature-icon-lightblue {
-            background: linear-gradient(90deg, #1d4ed8 0%, #1e40af 100%);
-        }
-        
+        .feature-icon-orange { background-color: #f97316; }
+        .feature-icon-blue { background-color: #2563eb; }
+        .feature-icon-black { background-color: #1f2937; }
+        .feature-icon-lightblue { background-color: #1d4ed8; }
+
         .whatsapp-button {
-            background: linear-gradient(90deg, #25D366 0%, #128C7E 100%);
+            background-color: #f97316;
             color: white;
             transition: all 0.3s ease;
         }
         
         .whatsapp-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(37, 211, 102, 0.4);
+            background-color: #fb923c;
+            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
         }
         
         .plans-container {
@@ -111,7 +104,7 @@
         }
         
         .menu-item {
-            color: #334155;
+            color: #334155; 
             font-weight: 600;
             position: relative;
             padding-bottom: 4px;
@@ -124,17 +117,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #1f2937 0%, #2563eb 50%, #f97316 100%);
+            background: linear-gradient(90deg, #2563eb 0%, #f97316 100%);
             transition: width 0.3s ease;
         }
         
-        .menu-item:hover {
-            color: #1f2937;
-        }
-        
-        .menu-item:hover::after {
-            width: 100%;
-        }
+        .menu-item:hover { color: #1e293b; }
+        .menu-item:hover::after { width: 100%; }
         
         .plan-text {
             text-align: justify;
@@ -162,54 +150,40 @@
         }
         
         .image-placeholder {
-            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            background-color: #2563eb;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             font-weight: 600;
-            padding: 2rem;
+            padding: 0;
             border-radius: 1.5rem;
             min-height: 400px;
+            overflow: hidden;
+        }
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
-        .upload-instruction {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem;
-            border-radius: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .form-input {
+        .form-input, .form-select {
             width: 100%;
             padding: 12px 16px;
             border: 2px solid #e2e8f0;
             border-radius: 8px;
             font-size: 14px;
+            background-color: #ffffff;
+            color: #334155;
             transition: all 0.3s ease;
         }
         
-        .form-input:focus {
-            outline: none;
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
+        .form-input::placeholder { color: #9ca3af; }
         
-        .form-select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 14px;
-            background-color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .form-select:focus {
+        .form-input:focus, .form-select:focus {
             outline: none;
-            border-color: #2563eb;
+            border-color: #2563eb; 
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
         
@@ -219,29 +193,26 @@
             height: auto;
             border-radius: 1rem;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
+            margin: 0 auto;
         }
         
-        .erp-image:hover {
-            transform: scale(1.02);
-        }
+        .erp-image:hover { transform: scale(1.02); }
         
         .erp-section {
-            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            background-color: #ffffff;
             padding: 4rem 2rem;
             border-radius: 2rem;
             margin: 2rem 0;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
         }
         
         .erp-title {
             font-size: 2.5rem;
             font-weight: 800;
-            background: linear-gradient(90deg, #f97316 0%, #f59e0b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #f97316;
             margin-bottom: 1rem;
         }
         
@@ -252,32 +223,85 @@
             line-height: 1.6;
         }
         
-        .erp-description {
-            font-size: 1.1rem;
-            color: #475569;
-            line-height: 1.8;
-            margin-bottom: 2rem;
+        .erp-highlight-box {
+            display: inline-block;
+            background-color: #eef2ff;
+            border: 1px solid #c7d2fe;
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+        }
+        .erp-highlight-text {
+            color: #3730a3;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        .erp-highlight-text strong { color: #4f46e5; }
+
+        /* Logo Sólida */
+        .logo-solid-bg {
+            width: 10px;
+            height: 100%;
+        }
+        .logo-orange { background-color: #f97316; }
+        .logo-blue { background-color: #2563eb; }
+        .logo-black { background-color: #111827; }
+
+        /* --- CSS PARA OS CARDS ANIMADOS COM IMAGEM --- */
+        @keyframes fadeInOutCycle {
+            0%, 25%, 100% { opacity: 0; transform: translateY(10px) scale(0.95); }
+            5%, 20%     { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .segment-card {
+            animation: fadeInOutCycle 6s ease-in-out infinite; 
+            opacity: 0; 
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.75rem; 
+            padding: 0.5rem 0.5rem 0.5rem 1rem; /* Padding para o texto e imagem */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem; 
         }
         
-        .erp-highlight {
-            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            display: inline-block;
-            margin: 0.5rem 0;
+        .segment-card-image {
+            width: 32px; /* Largura da miniatura */
+            height: 32px; /* Altura da miniatura */
+            border-radius: 0.5rem; /* Borda arredondada para a imagem */
+            object-fit: cover;
+            flex-shrink: 0; /* Não permite que a imagem encolha */
+            border: 1px solid #e2e8f0;
         }
+        
+        .segment-card span {
+            font-weight: 600;
+            color: #1e3a8a; 
+            padding-right: 0.5rem; /* Espaço para o texto não encostar na borda direita do card */
+            font-size: 0.875rem; /* 14px */
+        }
+
+        .delay-0 { animation-delay: 0s; } 
+        .delay-2 { animation-delay: 2s; } 
+        .delay-4 { animation-delay: 4s; } 
+        /* --- FIM DO CSS PARA OS CARDS ANIMADOS COM IMAGEM --- */
+
     </style>
 </head>
 <body class="min-h-screen">
-    <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="bg-white shadow-md sticky top-0 z-50 border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-r from-blue-600 via-orange-500 to-black rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">GM</span>
+                    <div class="w-10 h-10 rounded-lg flex overflow-hidden shadow">
+                        <div class="logo-solid-bg logo-blue"></div>
+                        <div class="logo-solid-bg logo-orange"></div>
+                        <div class="logo-solid-bg logo-black"></div>
+                        <div class="w-10 h-10 bg-white flex items-center justify-center">
+                           <span class="text-blue-700 font-bold text-xl">GM</span>
+                        </div>
                     </div>
                     <span class="text-2xl font-bold text-gray-900">Sistema GM</span>
                 </div>
@@ -294,23 +318,22 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative py-20 px-4 sm:px-6 lg:px-8 hero-gradient">
+    <section class="relative py-20 px-4 sm:px-6 lg:px-8 hero-section">
         <div class="max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <div class="inline-block bg-gradient-to-r from-orange-500 to-yellow-500 px-4 py-2 rounded-full">
-                        <span class="text-white font-semibold flex items-center">
+                <div class="space-y-8 z-10">
+                    <div class="inline-block bg-orange-500 px-4 py-2 rounded-full shadow-lg">
+                        <span class="text-white font-semibold flex items-center text-sm">
                             <i class="fas fa-award mr-2"></i>
-                            Sistema Perfeito para MEI, Pequenas e Médias Empresas
+                            Perfeito para MEI, Pequenas e Médias Empresas
                         </span>
                     </div>
                     
                     <h1 class="text-5xl lg:text-6xl font-bold text-white leading-tight">
-                        Controle seu negócio <span class="gradient-text-orange">de qualquer lugar</span>
+                        Controle seu negócio <span class="text-orange-300">de qualquer lugar</span>
                     </h1>
                     
-                    <p class="text-xl text-blue-100 leading-relaxed plan-text">
+                    <p class="text-xl text-blue-100/90 leading-relaxed plan-text">
                         Sistema de gestão completo com PDV offline e gestão web integrada. Perfeito para MEIs, pequenas e médias empresas que querem simplicidade, agilidade e controle total do seu negócio, com emissão fiscal completa e suporte personalizado desde o primeiro dia.
                     </p>
                     
@@ -319,37 +342,51 @@
                             <i class="fab fa-whatsapp text-white mr-3 text-xl"></i>
                             Quero Ser Atendido
                         </a>
-                        <button class="secondary-button text-gray-700 px-8 py-4 rounded-xl font-bold text-lg bg-white/10 backdrop-blur-sm">
+                        <button class="secondary-button px-8 py-4 rounded-xl font-bold text-lg">
                             Ver Demonstração
                         </button>
                     </div>
                     
                     <div class="flex items-center space-x-6 pt-4">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-orange-400">5.000+</div>
-                            <div class="text-blue-200">Clientes Atendidos</div>
+                            <div class="text-2xl font-bold text-orange-300">5.000+</div>
+                            <div class="text-blue-100/90">Clientes Atendidos</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-blue-400">92%</div>
-                            <div class="text-blue-200">Satisfação</div>
+                            <div class="text-2xl font-bold text-blue-300">92%</div>
+                            <div class="text-blue-100/90">Satisfação</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-gray-400">24/7</div>
-                            <div class="text-blue-200">Suporte</div>
+                            <div class="text-2xl font-bold text-gray-300">24/7</div>
+                            <div class="text-blue-100/90">Suporte</div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="relative">
-                    <div class="bg-gradient-to-br from-blue-500 to-orange-500 rounded-2xl p-1 shadow-2xl">
+                    <div class="bg-blue-600 rounded-2xl p-1 shadow-2xl">
                         <div class="image-placeholder">
-                                    <img src="https://github.com/Marottu/GM/raw/main/ChatGPT%20Image%209%20de%20jul.%20de%202025%2C%2018_07_20.png" alt="Imagem da cafeteria">
-                                </div>
-                            </div>
+                            <img src="https://github.com/Marottu/GM/raw/main/ChatGPT%20Image%209%20de%20jul.%20de%202025%2C%2018_07_20.png" alt="Interface do sistema em um café" class="rounded-xl">
+                        </div>
                     </div>
-                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg">
-                        <div class="flex items-center space-x-2">
 
+                    <div class="segment-card delay-0" style="top: 15%; left: -5%;">
+                        <span>Varejo</span>
+                        <img src="https://images.unsplash.com/photo-1498751508210-92809e5b8712?w=50&h=50&q=80" alt="Varejo" class="segment-card-image">
+                    </div>
+                    
+                    <div class="segment-card delay-2" style="top: 40%; right: -5%;">
+                        <span>Restaurantes</span>
+                        <img src="https://images.unsplash.com/photo-1544025166-51268ec3ccb1?w=50&h=50&q=80" alt="Restaurantes" class="segment-card-image">
+                    </div>
+                    
+                    <div class="segment-card delay-4" style="top: 65%; left: 0%;">
+                        <span>Serviços</span>
+                        <img src="https://images.unsplash.com/photo-1509099836639-18baefd83608?w=50&h=50&q=80" alt="Serviços" class="segment-card-image">
+                    </div>
+                    
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-gray-200 z-10">
+                        <div class="flex items-center space-x-2">
                             <i class="fas fa-check-circle text-orange-500"></i>
                             <span class="font-semibold text-gray-800">Atendimento Personalizado</span>
                         </div>
@@ -359,18 +396,17 @@
         </div>
     </section>
 
-    <!-- ERP Section -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="erp-section">
                 <div class="text-center mb-8">
                     <h2 class="erp-title">Gestão com ERP completo</h2>
                     <p class="erp-subtitle">Informações consolidadas do seu negócio em um único lugar. Controle total sobre a situação financeira, relatórios gerenciais e emissão de todos os modelos de notas fiscais eletrônicas e muito mais.</p>
                 </div>
-                                        <img src="https://images.unsplash.com/photo-1551288049-bebda3cccd40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=600&q=80" alt="Dashboard de gestão empresarial" class="erp-image">
-                </div>
                 
-                <div class="mt-8">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda3cccd40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=600&q=80" alt="Dashboard de gestão empresarial" class="erp-image">
+                
+                <div class="mt-12">
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
                             <h3 class="text-2xl font-bold text-gray-900 mb-4">O que você pode fazer com nosso ERP</h3>
@@ -417,9 +453,9 @@
                     </div>
                 </div>
                 
-                <div class="mt-8 text-center">
-                    <div class="inline-block bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
-                        <p class="text-blue-800 font-medium text-sm">
+                <div class="mt-12 text-center">
+                    <div class="erp-highlight-box">
+                        <p class="erp-highlight-text">
                             💡 <strong>Dica Importante:</strong> O ERP completo do Sistema GM é ideal para quem quer ter controle total do seu negócio com segurança fiscal e eficiência operacional!
                         </p>
                     </div>
@@ -428,33 +464,32 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Fidelizamos por Satisfação</h2>
-                <p class="text-xl text-gray-600 plan-text">
+                <p class="text-xl text-gray-600 plan-text max-w-3xl mx-auto">
                     Resultados reais de nossos clientes MEIs, pequenas e médias empresas que confiam no Sistema GM para gerenciar seus negócios com eficiência e segurança fiscal.
                 </p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <div class="text-center p-6 bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl">
+                <div class="text-center p-6 bg-orange-50 rounded-2xl border border-orange-200">
                     <div class="text-4xl font-bold text-orange-600 mb-2">2h</div>
                     <div class="text-gray-700 font-semibold">Tempo Médio de Implementação</div>
                 </div>
-                <div class="text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl">
+                <div class="text-center p-6 bg-blue-50 rounded-2xl border border-blue-200">
                     <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
                     <div class="text-gray-700 font-semibold">Suporte Disponível</div>
                 </div>
-                <div class="text-center p-6 bg-gradient-to-br from-gray-50 to-slate-100 rounded-2xl">
+                <div class="text-center p-6 bg-gray-100 rounded-2xl border border-gray-200">
                     <div class="text-4xl font-bold text-gray-700 mb-2">5.000+</div>
                     <div class="text-gray-700 font-semibold">Clientes Atendidos</div>
                 </div>
             </div>
             
             <div class="grid lg:grid-cols-1 gap-12 items-center max-w-4xl mx-auto">
-                <div class="bg-gradient-to-br from-orange-50 to-yellow-50 p-8 rounded-2xl">
+                <div class="bg-orange-50 p-8 rounded-2xl border border-orange-200">
                     <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Taxa de Satisfação</h3>
                     <div class="text-center">
                         <div class="text-6xl font-bold text-orange-600 mb-2">92%</div>
@@ -467,19 +502,17 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section id="recursos" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold text-gray-900 mb-6">
-                    Por que o Sistema GM é <span class="gradient-text-orange">diferente</span>?
+                    Por que o Sistema GM é <span class="text-orange-solid">diferente</span>?
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto plan-text">
                     Enquanto outros sistemas oferecem apenas PDV offline OU gestão web, nós unimos o melhor dos dois mundos em uma solução completa, segura e intuitiva para o seu negócio.
                 </p>
             </div>
             
-            <!-- Features em linha reta com cores azul, laranja e preto -->
             <div class="features-grid">
                 <div class="feature-card bg-white p-6 rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 text-center">
                     <div class="w-12 h-12 feature-icon-orange rounded-lg flex items-center justify-center text-white mx-auto mb-4">
@@ -522,34 +555,32 @@
                 </div>
             </div>
             
-            <div class="mt-16 bg-gradient-to-r from-blue-600 via-orange-500 to-black rounded-3xl p-8 text-white">
+            <div class="mt-16 bg-blue-700 rounded-3xl p-8 text-white shadow-2xl">
                 <div class="max-w-4xl mx-auto text-center">
                     <h3 class="text-3xl font-bold mb-4">Interface Intuitiva que Qualquer Pessoa Entende</h3>
                     <p class="text-xl opacity-90 mb-6 plan-text">
                         Desenvolvido especialmente para MEIs, pequenas e médias empresas que não têm tempo para aprender sistemas complicados. Simples, rápido e eficiente.
                     </p>
                     <div class="flex flex-wrap justify-center gap-4">
-                        <div class="bg-white/20 px-4 py-2 rounded-full">Dashboard Simples</div>
-                        <div class="bg-white/20 px-4 py-2 rounded-full">Menus Claros</div>
-                        <div class="bg-white/20 px-4 py-2 rounded-full">Botões Grandes</div>
-                        <div class="bg-white/20 px-4 py-2 rounded-full">Ajuda Contextual</div>
+                        <div class="bg-white/20 px-4 py-2 rounded-full backdrop-blur-sm">Dashboard Simples</div>
+                        <div class="bg-white/20 px-4 py-2 rounded-full backdrop-blur-sm">Menus Claros</div>
+                        <div class="bg-white/20 px-4 py-2 rounded-full backdrop-blur-sm">Botões Grandes</div>
+                        <div class="bg-white/20 px-4 py-2 rounded-full backdrop-blur-sm">Ajuda Contextual</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Plans Section -->
     <section id="planos" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold text-gray-900 mb-6">Planos Perfeitos para seu Negócio</h2>
-                <p class="text-xl text-gray-600 plan-text">
+                <p class="text-xl text-gray-600 plan-text max-w-3xl mx-auto">
                     Escolha o plano que melhor se adapta ao seu MEI, pequena ou média empresa, com funcionalidades específicas para cada tipo de negócio e necessidade.
                 </p>
             </div>
             
-            <!-- Planos alinhados lado a lado com textos reduzidos -->
             <div class="plans-container">
                 <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200">
                     <div class="p-6">
@@ -622,7 +653,7 @@
                 </div>
                 
                 <div class="plan-card popular bg-white rounded-2xl shadow-lg transition-all duration-300 border-2">
-                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-600 via-orange-500 to-black text-white px-3 py-1 rounded-full text-xs font-bold">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                         MAIS POPULAR
                     </div>
                     <div class="p-6 pt-8">
@@ -656,6 +687,14 @@
                                 <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
                                 <span class="text-gray-700">NFC-e</span>
                             </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">NF-e</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
+                                <span class="text-gray-700">PDV Offline</span>
+                            </li>
                         </ul>
                         
                         <a href="#contato" class="w-full whatsapp-button py-2 rounded-lg font-semibold flex items-center justify-center text-sm">
@@ -667,39 +706,19 @@
                 
                 <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200">
                     <div class="p-6">
-                        <h3 class="plan-title mb-3">PDV GESTÃO TOTAL</h3>
+                        <h3 class="plan-title mb-3">COMBO</h3>
                         <div class="mb-4">
-                            <div class="plan-price">R$ 130,00<span>/mês</span></div>
+                            <div class="plan-price">R$ 150,00<span>/mês</span></div>
                         </div>
                         
                         <ul class="space-y-2 mb-6">
                             <li class="flex items-center">
                                 <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
-                                <span class="text-gray-700">Dashboard</span>
+                                <span class="text-gray-700">PDV WEB GESTÃO</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
-                                <span class="text-gray-700">Estoque</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
-                                <span class="text-gray-700">Compras</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
-                                <span class="text-gray-700">Financeiro</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
-                                <span class="text-gray-700">Relatórios</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
-                                <span class="text-gray-700">NFC-e</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-orange-500 mr-2 text-sm"></i>
-                                <span class="text-gray-700">NF-e</span>
+                                <span class="text-gray-700">1 PDV Extra</span>
                             </li>
                         </ul>
                         
@@ -710,658 +729,151 @@
                     </div>
                 </div>
             </div>
+
+        </div>
+    </section>
+    
+    <section id="contato" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Fale com um <span class="text-orange-solid">Especialista</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto plan-text">
+                    Nossa equipe está pronta para entender seu negócio e te ajudar a crescer com a ferramenta certa.
+                </p>
+            </div>
             
-            <div class="mt-8 text-center">
-                <div class="inline-block bg-orange-50 border border-orange-200 rounded-xl px-4 py-3">
-                    <p class="text-orange-800 font-medium text-sm plan-text">
-                        💡 <strong>Dica Importante:</strong> O plano PDV WEB GESTÃO (R$100) é o mais popular entre nossos clientes MEIs e pequenas empresas, oferecendo o melhor equilíbrio entre funcionalidades e custo-benefício!
+            <div class="mb-12 text-center">
+                <div class="inline-block bg-white border border-gray-200 rounded-xl px-4 py-3 shadow-sm">
+                    <p class="text-gray-700 font-medium">
+                        <i class="fas fa-check-circle text-orange-500 mr-2"></i>
+                        <strong>Atendimento consultivo e online sem custo.</strong>
+                        <span class="block sm:inline text-gray-500"> Pague apenas a mensalidade, sem fidelidade.</span>
                     </p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <form action="#" method="POST" class="space-y-6 bg-white p-8 rounded-2xl shadow-2xl border border-gray-200">
+                    <div>
+                        <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Seu Nome</label>
+                        <input type="text" name="name" id="name" placeholder="Digite seu nome completo" class="form-input">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Seu WhatsApp</label>
+                        <input type="tel" name="phone" id="phone" placeholder="(XX) XXXXX-XXXX" class="form-input">
+                    </div>
+                    <div>
+                        <label for="company" class="block text-sm font-semibold text-gray-700 mb-2">Nome da Empresa</label>
+                        <input type="text" name="company" id="company" placeholder="Digite o nome da sua empresa" class="form-input">
+                    </div>
+                    <div>
+                        <label for="segment" class="block text-sm font-semibold text-gray-700 mb-2">Segmento</label>
+                        <select id="segment" name="segment" class="form-select">
+                            <option>Selecione seu segmento</option>
+                            <option>Varejo</option>
+                            <option>Restaurante / Bar</option>
+                            <option>Distribuidora</option>
+                            <option>Serviços</option>
+                            <option>Outro</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full hero-button px-8 py-3 rounded-xl font-bold text-lg">
+                        Enviar e Falar com Especialista
+                    </button>
+                </form>
+                
+                <div class="space-y-8">
+                    <h3 class="text-3xl font-bold text-gray-900">Nossos Canais</h3>
+                    <ul class="space-y-6">
+                        
+                        <li class="flex items-start">
+                            <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-4 border border-orange-200">
+                                <i class="fab fa-whatsapp text-orange-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-900">WhatsApp</h4>
+                                <p>
+                                    <a href="https://wa.me/5541996841054" target="_blank" class="text-gray-700 font-medium hover:text-orange-600 hover:underline transition-colors">
+                                        (41) 99684-1054 (clique para falar)
+                                    </a>
+                                </p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start">
+                            <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4 border border-gray-200">
+                                <i class="fas fa-clock text-gray-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-900">Horário de Atendimento</h4>
+                                <p class="text-gray-700">Segunda a Sexta, das 08:00 às 18:00</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section id="contato" class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Quero Conhecer o Sistema GM!</h2>
-                    <p class="text-gray-600 text-lg">Preencha o formulário abaixo e entraremos em contato pelo WhatsApp para agendar sua demonstração gratuita.</p>
+    <footer class="bg-slate-900 text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 rounded-lg flex overflow-hidden shadow">
+                            <div class="logo-solid-bg logo-blue"></div>
+                            <div class="logo-solid-bg logo-orange"></div>
+                            <div class="logo-solid-bg logo-black"></div>
+                            <div class="w-10 h-10 bg-white flex items-center justify-center">
+                               <span class="text-blue-700 font-bold text-xl">GM</span>
+                            </div>
+                        </div>
+                        <span class="text-2xl font-bold text-white">Sistema GM</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Simplificando a gestão de MEIs, pequenas e médias empresas com tecnologia acessível e suporte dedicado.
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
                 
-                <form id="leadForm" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="nome" class="block text-sm font-medium text-gray-700 mb-2">Nome Completo *</label>
-                            <input type="text" id="nome" name="nome" required class="form-input" placeholder="Seu nome completo">
-                        </div>
-                        <div>
-                            <label for="empresa" class="block text-sm font-medium text-gray-700 mb-2">Nome da Empresa *</label>
-                            <input type="text" id="empresa" name="empresa" required class="form-input" placeholder="Nome do seu negócio">
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="telefone" class="block text-sm font-medium text-gray-700 mb-2">WhatsApp *</label>
-                            <input type="tel" id="telefone" name="telefone" required class="form-input" placeholder="(41) 99999-9999">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">E-mail</label>
-                            <input type="email" id="email" name="email" class="form-input" placeholder="seu@email.com">
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label for="segmento" class="block text-sm font-medium text-gray-700 mb-2">Segmento do Negócio *</label>
-                        <select id="segmento" name="segmento" required class="form-select">
-                            <option value="">Selecione seu segmento</option>
-                            <option value="alimentacao">Alimentação (Restaurante, Lanchonete, Cafeteria)</option>
-                            <option value="varejo">Varejo (Loja de Roupas, Calçados, Presentes)</option>
-                            <option value="servicos">Serviços (Salão de Beleza, Oficina, Consultoria)</option>
-                            <option value="supermercado">Supermercado / Mercearia</option>
-                            <option value="farmacia">Farmácia</option>
-                            <option value="outros">Outros</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label for="plano" class="block text-sm font-medium text-gray-700 mb-2">Plano de Interesse *</label>
-                        <select id="plano" name="plano" required class="form-select">
-                            <option value="">Selecione o plano que mais te interessa</option>
-                            <option value="pdv_simples">PDV SIMPLES - R$ 50,00/mês</option>
-                            <option value="web">WEB - R$ 80,00/mês</option>
-                            <option value="pdv_web_gestao" selected>PDV WEB GESTÃO - R$ 100,00/mês (Mais Popular)</option>
-                            <option value="pdv_gestao_total">PDV GESTÃO TOTAL - R$ 130,00/mês</option>
-                            <option value="nao_sei">Ainda não sei qual plano escolher</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label for="mensagem" class="block text-sm font-medium text-gray-700 mb-2">Mensagem (Opcional)</label>
-                        <textarea id="mensagem" name="mensagem" rows="4" class="form-input" placeholder="Conte-nos mais sobre seu negócio e suas necessidades..."></textarea>
-                    </div>
-                    
-                    <div class="text-center">
-                        <button type="submit" class="whatsapp-button px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center mx-auto">
-                            <i class="fab fa-whatsapp text-white mr-3 text-xl"></i>
-                            Enviar para WhatsApp - (41) 99684-1054
-                        </button>
-                        <p class="text-gray-500 text-sm mt-4">Seu contato será enviado diretamente para nosso WhatsApp e entraremos em contato em breve!</p>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+                <div>
+                    <h5 class="font-bold text-white mb-4">Navegação</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#recursos" class="text-gray-400 hover:text-orange-500 transition-colors text-sm">Recursos</a></li>
+                        <li><a href="#planos" class="text-gray-400 hover:text-orange-500 transition-colors text-sm">Planos</a></li>
+                        <li><a href="#contato" class="text-gray-400 hover:text-orange-500 transition-colors text-sm">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="font-bold text-white mb-4">Soluções</h5>
+                    <ul class="space-y-2">
+                        <li><span class="text-gray-400 text-sm">PDV Offline</span></li>
+                        <li><span class="text-gray-400 text-sm">Gestão Web (ERP)</span></li>
+                        <li><span class="text-gray-400 text-sm">Emissão Fiscal (NFC-e/NF-e)</span></li>
+                        <li><span class="text-gray-400 text-sm">Controle de Estoque</span></li>
+                    </ul>
+                </div>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-blue-600 via-orange-500 to-black">
-        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-white mb-6">
-                Pronto para Transformar seu Negócio?
-            </h2>
-            <p class="text-xl text-blue-100 mb-8 plan-text">
-                Fale diretamente com nosso especialista e descubra qual plano é ideal para sua empresa, com atendimento personalizado e suporte inicial incluído.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://wa.me/5541996841054" target="_blank" class="whatsapp-button px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center">
-                    <i class="fab fa-whatsapp text-white mr-3 text-xl"></i>
-                    Falar com Especialista - (41) 99684-1054
-                </a>
+                <div>
+                    <h5 class="font-bold text-white mb-4">Diferenciais</h5>
+                    <ul class="space-y-2">
+                        <li><span class="text-gray-400 text-sm">Suporte Personalizado</span></li>
+                        <li><span class="text-gray-400 text-sm">Sem Fidelidade</span></li>
+                        <li><span class="text-gray-400 text-sm">Implantação Rápida</span></li>
+                    </ul>
+                </div>
             </div>
-            <p class="text-blue-100 mt-6 plan-text">
-                Suporte inicial incluído • Atendimento personalizado • Sem compromisso
-            </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <div class="flex items-center justify-center space-x-2 mb-4">
-                    <div class="w-8 h-8 bg-gradient-to-r from-blue-600 via-orange-500 to-black rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold">GM</span>
-                    </div>
-                    <span class="text-xl font-bold">Sistema GM</span>
-                </div>
-                <p class="text-gray-400 mb-6 plan-text">
-                    O sistema de gestão perfeito para MEIs, pequenas e médias empresas que querem simplicidade, agilidade e controle total do seu negócio com segurança fiscal.
-                </p>
-                <div class="mb-4">
-                    <a href="https://wa.me/5541996841054" target="_blank" class="whatsapp-button px-6 py-3 rounded-lg font-semibold inline-flex items-center">
-                        <i class="fab fa-whatsapp mr-2"></i>
-                        (41) 99684-1054
-                    </a>
-                </div>
-                <div class="border-t border-gray-800 pt-6">
-                    <p class="text-gray-500">
-                        © 2024 Sistema GM. Todos os direitos reservados.
-                    </p>
-                </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-500 text-sm">&copy; 2024 Sistema GM. Todos os direitos reservados. CNPJ: XX.XXX.XXX/0001-XX</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Script para lidar com o formulário de leads
-        document.addEventListener('DOMContentLoaded', function() {
-            // Smooth scroll para âncoras
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-            
-            // Formulário de leads
-            const form = document.getElementById('leadForm');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Coletar dados do formulário
-                    const nome = document.getElementById('nome').value;
-                    const empresa = document.getElementById('empresa').value;
-                    const telefone = document.getElementById('telefone').value;
-                    const email = document.getElementById('email').value;
-                    const segmento = document.getElementById('segmento').value;
-                    const plano = document.getElementById('plano').value;
-                    const mensagem = document.getElementById('mensagem').value;
-                    
-                    // Formatar mensagem para WhatsApp
-                    let mensagemWhatsApp = `Olá! Tenho interesse no Sistema GM.%0A%0A`;
-                    mensagemWhatsApp += `*Nome:* ${nome}%0A`;
-                    mensagemWhatsApp += `*Empresa:* ${empresa}%0A`;
-                    mensagemWhatsApp += `*WhatsApp:* ${telefone}%0A`;
-                    if (email) {
-                        mensagemWhatsApp += `*E-mail:* ${email}%0A`;
-                    }
-                    mensagemWhatsApp += `*Segmento:* ${segmento}%0A`;
-                    mensagemWhatsApp += `*Plano de interesse:* ${plano}%0A`;
-                    if (mensagem) {
-                        mensagemWhatsApp += `*Mensagem:* ${mensagem}%0A`;
-                    }
-                    mensagemWhatsApp += `%0AEstou aguardando o contato de vocês!`;
-                    
-                    // Redirecionar para WhatsApp
-                    const whatsappURL = `https://wa.me/5541996841054?text=${mensagemWhatsApp}`;
-                    window.open(whatsappURL, '_blank');
-                    
-                    // Opcional: mostrar mensagem de sucesso
-                    alert('Seu contato foi enviado para nosso WhatsApp! Entraremos em contato em breve.');
-                });
-            }
-      });
-        <!-- CHAT DE ATENDIMENTO COM IA -->
-<div id="chat-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
-  <button id="toggleChat" style="background:#007bff;color:white;border:none;padding:10px 15px;border-radius:50%;cursor:pointer;">💬</button>
-  <div id="chatBox" style="display:none;background:white;width:320px;height:400px;border-radius:15px;box-shadow:0 0 10px rgba(0,0,0,0.3);padding:10px;">
-    <h3 style="margin:0 0 10px 0;">Atendimento IA 🤖</h3>
-    <div id="messages" style="height:300px;overflow-y:auto;border:1px solid #ccc;padding:5px;"></div>
-    <input id="userInput" placeholder="Digite sua dúvida..." style="width:75%;padding:5px;">
-    <button onclick="sendMessage()" style="padding:5px 10px;">Enviar</button>
-  </div>
-</div>
-
-<script>
-document.getElementById("toggleChat").addEventListener("click", () => {
-  const box = document.getElementById("chatBox");
-  box.style.display = box.style.display === "none" ? "block" : "none";
-});
-
-async function sendMessage() {
-  const input = document.getElementById("userInput");
-  const messages = document.getElementById("messages");
-  const userMsg = input.value.trim();
-  if (!userMsg) return;
-  messages.innerHTML += `<p><strong>Você:</strong> ${userMsg}</p>`;
-  input.value = "";
-
-  const response = await fetch("https://api-inference.huggingface.co/models/microsoft/DialoGPT-small", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ inputs: userMsg })
-  });
-
-  const data = await response.json();
-  const botReply = data?.generated_text || "Desculpe, não entendi bem. Pode repetir?";
-  messages.innerHTML += `<p><strong>IA:</strong> ${botReply}</p>`;
-  messages.scrollTop = messages.scrollHeight;
-}
-</script>
-
-    </script>
-    <!-- Adicione este código ANTES do </body> da sua landing page -->
-
-<!-- Botão da Assistente Virtual -->
-<div id="chatbot-toggle" class="chatbot-toggle">
-    <i class="fas fa-robot"></i>
-</div>
-
-<!-- Container do Chat -->
-<div id="chatbot-container" class="chatbot-container">
-    <div class="chatbot-header">
-        <h4>Assistente GM SISTEMAS</h4>
-        <button id="chatbot-close" class="chatbot-close">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    <div id="chatbot-messages" class="chatbot-messages">
-        <div class="message bot-message">
-            <div class="message-avatar">
-                <i class="fas fa-robot"></i>
-            </div>
-            <div class="message-content">
-                Olá! Sou a assistente virtual da GM SISTEMAS. Como posso ajudar você hoje?
-            </div>
-        </div>
-    </div>
-    <div class="chatbot-input">
-        <input type="text" id="chatbot-input" placeholder="Digite sua mensagem..." maxlength="200">
-        <button id="chatbot-send">
-            <i class="fas fa-paper-plane"></i>
-        </button>
-    </div>
-</div>
-
-<style>
-    /* Estilos da Assistente Virtual */
-    .chatbot-toggle {
-        position: fixed;
-        bottom: 100px;
-        right: 30px;
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-        z-index: 1001;
-        transition: all 0.3s ease;
-        animation: pulse 2s infinite;
-    }
-
-    .chatbot-toggle:hover {
-        transform: scale(1.1);
-    }
-
-    .chatbot-container {
-        position: fixed;
-        bottom: 100px;
-        right: 30px;
-        width: 350px;
-        height: 500px;
-        background: #1a1a1a;
-        border: 1px solid #333;
-        border-radius: 15px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        z-index: 1002;
-        display: none;
-        flex-direction: column;
-        overflow: hidden;
-    }
-
-    .chatbot-container.active {
-        display: flex;
-    }
-
-    .chatbot-header {
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-        color: white;
-        padding: 15px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .chatbot-header h4 {
-        margin: 0;
-        font-size: 1rem;
-    }
-
-    .chatbot-close {
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        font-size: 1rem;
-    }
-
-    .chatbot-messages {
-        flex: 1;
-        padding: 20px;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .message {
-        display: flex;
-        gap: 10px;
-        align-items: flex-start;
-    }
-
-    .bot-message {
-        align-self: flex-start;
-    }
-
-    .user-message {
-        align-self: flex-end;
-        flex-direction: row-reverse;
-    }
-
-    .message-avatar {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.8rem;
-        color: white;
-        flex-shrink: 0;
-    }
-
-    .user-message .message-avatar {
-        background: #10b981;
-    }
-
-    .message-content {
-        background: #2d2d2d;
-        padding: 12px 15px;
-        border-radius: 15px;
-        max-width: 80%;
-        font-size: 0.9rem;
-        line-height: 1.4;
-        border: 1px solid #333;
-    }
-
-    .user-message .message-content {
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-        color: white;
-    }
-
-    .chatbot-input {
-        padding: 15px;
-        border-top: 1px solid #333;
-        display: flex;
-        gap: 10px;
-        background: #1a1a1a;
-    }
-
-    .chatbot-input input {
-        flex: 1;
-        padding: 12px 15px;
-        border: 1px solid #333;
-        border-radius: 25px;
-        background: #2d2d2d;
-        color: white;
-        font-size: 0.9rem;
-        outline: none;
-    }
-
-    .chatbot-input input:focus {
-        border-color: #3b82f6;
-    }
-
-    .chatbot-input button {
-        width: 45px;
-        height: 45px;
-        border: none;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-        color: white;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-    }
-
-    .chatbot-input button:hover {
-        transform: scale(1.05);
-    }
-
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-    }
-
-    /* Responsivo */
-    @media (max-width: 480px) {
-        .chatbot-container {
-            width: 90vw;
-            height: 70vh;
-            right: 5vw;
-            bottom: 80px;
-        }
-        
-        .chatbot-toggle {
-            right: 20px;
-            bottom: 80px;
-        }
-    }
-</style>
-
-<script>
-    // Base de conhecimento da assistente
-    const knowledgeBase = {
-        cumprimentos: [
-            "Olá! Como posso ajudar você hoje?",
-            "Oi! Em que posso ser útil?",
-            "Olá! Bem-vindo à GM SISTEMAS!"
-        ],
-        
-        planos: [
-            "Temos 4 planos: Básico (R$ 50), Web (R$ 80), Profissional (R$ 100) e Enterprise (R$ 130). Qual te interessa?",
-            "Nossos planos começam em R$ 50/mês. Posso te ajudar a escolher o ideal para seu negócio!",
-            "Oferecemos planos flexíveis de R$ 50 a R$ 130 mensais. Todos incluem suporte especializado."
-        ],
-        
-        pdv: [
-            "Nosso PDV funciona OFFLINE! Você vende mesmo sem internet e sincroniza depois.",
-            "O PDV da GM SISTEMAS é completo: controle de mesas, comandas, NFC-e e muito mais!",
-            "PDV 100% funcional offline com emissão de NFC-e integrada."
-        ],
-        
-        suporte: [
-            "Suporte de Segunda a Sexta das 8:30 às 18:00 e Sábado até 13:00.",
-            "Nosso suporte é especializado e está disponível em horário comercial.",
-            "Atendemos pelo WhatsApp (41) 99698-1582 ou email erpgmsistemas@gmail.com"
-        ],
-        
-        demonstracao: [
-            "Ótimo! Para agendar uma demonstração, preencha o formulário no site ou chame no WhatsApp!",
-            "Vou te conectar com nosso time para uma demonstração personalizada!",
-            "Perfeito! Nosso especialista entrará em contato para mostrar o sistema."
-        ],
-        
-        funcionalidades: [
-            "Temos: PDV offline, gestão financeira, controle de estoque, emissão de notas fiscais e apps mobile!",
-            "Funcionalidades completas: vendas, estoque, financeiro, relatórios e muito mais!",
-            "Sistema completo com PDV, gestão, relatórios e aplicativos integrados."
-        ],
-        
-        contato: [
-            "WhatsApp: (41) 99698-1582 | Email: erpgmsistemas@gmail.com",
-            "Fale conosco: (41) 99698-1582 ou erpgmsistemas@gmail.com",
-            "Contato direto: (41) 99698-1582 - Estamos online!"
-        ],
-        
-        default: [
-            "Desculpe, não entendi. Pode reformular?",
-            "Não consegui processar isso. Pode tentar de outra forma?",
-            "Hmm, não sei responder isso. Que tal perguntar sobre nossos planos ou funcionalidades?"
-        ]
-    };
-
-    // Mapeamento de palavras-chave para categorias
-    const keywordMap = {
-        // Cumprimentos
-        'oi': 'cumprimentos',
-        'olá': 'cumprimentos',
-        'ola': 'cumprimentos',
-        'hey': 'cumprimentos',
-        'eai': 'cumprimentos',
-        
-        // Planos e Preços
-        'plano': 'planos',
-        'planos': 'planos',
-        'preço': 'planos',
-        'preco': 'planos',
-        'valor': 'planos',
-        'quanto': 'planos',
-        'custa': 'planos',
-        'precos': 'planos',
-        'preços': 'planos',
-        
-        // PDV
-        'pdv': 'pdv',
-        'ponto de venda': 'pdv',
-        'venda': 'pdv',
-        'caixa': 'pdv',
-        'offline': 'pdv',
-        'nfc': 'pdv',
-        
-        // Suporte
-        'suporte': 'suporte',
-        'atendimento': 'suporte',
-        'horário': 'suporte',
-        'horario': 'suporte',
-        'funciona': 'suporte',
-        'ajuda': 'suporte',
-        
-        // Demonstração
-        'demo': 'demonstracao',
-        'demonstração': 'demonstracao',
-        'demonstracao': 'demonstracao',
-        'testar': 'demonstracao',
-        'experimentar': 'demonstracao',
-        'avaliar': 'demonstracao',
-        
-        // Funcionalidades
-        'funcionalidade': 'funcionalidades',
-        'funcionalidades': 'funcionalidades',
-        'recursos': 'funcionalidades',
-        'sistema': 'funcionalidades',
-        'software': 'funcionalidades',
-        'faz': 'funcionalidades',
-        'fazer': 'funcionalidades',
-        
-        // Contato
-        'contato': 'contato',
-        'telefone': 'contato',
-        'whatsapp': 'contato',
-        'email': 'contato',
-        'falar': 'contato',
-        'ligar': 'contato'
-    };
-
-    // Elementos do DOM
-    const chatbotToggle = document.getElementById('chatbot-toggle');
-    const chatbotContainer = document.getElementById('chatbot-container');
-    const chatbotClose = document.getElementById('chatbot-close');
-    const chatbotMessages = document.getElementById('chatbot-messages');
-    const chatbotInput = document.getElementById('chatbot-input');
-    const chatbotSend = document.getElementById('chatbot-send');
-
-    // Função para adicionar mensagem
-    function addMessage(text, isUser = false) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
-        
-        messageDiv.innerHTML = `
-            <div class="message-avatar">
-                <i class="fas ${isUser ? 'fa-user' : 'fa-robot'}"></i>
-            </div>
-            <div class="message-content">
-                ${text}
-            </div>
-        `;
-        
-        chatbotMessages.appendChild(messageDiv);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    }
-
-    // Função para processar a mensagem do usuário
-    function processUserMessage(message) {
-        const lowerMessage = message.toLowerCase();
-        let category = 'default';
-        
-        // Procura por palavras-chave
-        for (const [keyword, cat] of Object.entries(keywordMap)) {
-            if (lowerMessage.includes(keyword)) {
-                category = cat;
-                break;
-            }
-        }
-        
-        // Resposta aleatória da categoria
-        const responses = knowledgeBase[category];
-        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-        
-        // Simula tempo de resposta
-        setTimeout(() => {
-            addMessage(randomResponse, false);
-        }, 1000);
-    }
-
-    // Event Listeners
-    chatbotToggle.addEventListener('click', () => {
-        chatbotContainer.classList.add('active');
-    });
-
-    chatbotClose.addEventListener('click', () => {
-        chatbotContainer.classList.remove('active');
-    });
-
-    chatbotSend.addEventListener('click', sendMessage);
-    
-    chatbotInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    });
-
-    function sendMessage() {
-        const message = chatbotInput.value.trim();
-        if (message) {
-            addMessage(message, true);
-            chatbotInput.value = '';
-            processUserMessage(message);
-        }
-    }
-
-    // Fechar chat ao clicar fora (opcional)
-    document.addEventListener('click', (e) => {
-        if (!chatbotContainer.contains(e.target) && !chatbotToggle.contains(e.target)) {
-            chatbotContainer.classList.remove('active');
-        }
-    });
-</script>
 </body>
 </html>
-```
-
-
-
-
-
-
-
-
